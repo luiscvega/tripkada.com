@@ -7,6 +7,9 @@ task :seed do
   group = Group.create(name: "Dahoodz")
   Membership.create(user: user, group: group)
 
+  group = Group.create(name: "Bukeki")
+  Membership.create(user: user, group: group)
+
   Deal.create(
     name: "Palawan Escape", pax: 4, duration: 3, cost: 10000, photo: "palawan1",
     description:

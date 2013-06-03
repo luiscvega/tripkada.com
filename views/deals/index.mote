@@ -4,17 +4,19 @@
 
 <ul class="media-list">
   % deals.each do |deal|
-  <li class="media">
-    <img class="media-object pull-left img-polaroid" width=250 src="/img/{{ deal.photo }}.jpg">
-    <div class="media-body">
-      <h4><a href="/deals/{{ deal.id }}">{{ deal.name }}</a></h4>
-      <p>{{ deal.description }}</p>
-      <dl class="dl-horizontal">
-        <dt>Number of Persons</dt>
-        <dd>{{ deal.pax }}</dd>
-        <dt>Cost</dt>
-        <dd>{{ this.money(deal.cost) }}</dd>
-      </dl>
+  <div class="deal-row well well-small" onclick="location.href='/deals/{{ deal.id }}';">
+    <li class="media">
+      <img class="media-object pull-left img-polaroid" width=250 src="/img/{{ deal.photo }}.jpg">
+      <div class="media-body">
+        <h4>{{ deal.name }}</h4>
+        <p>{{ deal.description }}</p>
+        <dl class="dl-horizontal">
+          <dt>Number of Persons</dt>
+          <dd>{{ deal.pax }}</dd>
+          <dt>Cost</dt>
+          <dd>{{ this.money(deal.cost) }}</dd>
+        </dl>
+      </div>
     </div>
   </li>
   % end

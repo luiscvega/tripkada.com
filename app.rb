@@ -22,6 +22,7 @@ Cuba.use Rack::Protection
 Cuba.use Rack::Protection::RemoteReferrer
 
 Cuba.plugin Helpers
+Cuba.plugin Cuba::With
 
 Cuba.use Rack::Static,
   urls: %w[/js /css /img],

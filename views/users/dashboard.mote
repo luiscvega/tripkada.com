@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h1>Welcome back!</h1>
+  <h1>Welcome back {{ this.current_user.first_name }}!</h1>
 </div>
 
 <ol>
