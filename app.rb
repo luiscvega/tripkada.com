@@ -15,7 +15,7 @@ Dir["./filters/**/*.rb"].each { |rb| require rb }
 
 Cuba.use Rack::MethodOverride
 Cuba.use Rack::Session::Cookie,
-  key: "checkout.ph",
+  key: "tripkada",
   secret: "8aa0a37e4342310afdedd3a7407c6ee5fceb5d0b"
 
 Cuba.use Rack::Protection

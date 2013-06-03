@@ -1,6 +1,10 @@
 module Routes
   class Users < Cuba
     define do
+      on "groups" do
+        run Routes::Groups
+      end
+
       on "logout" do
         logout(User)
         res.redirect "/"

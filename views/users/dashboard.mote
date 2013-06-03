@@ -1,1 +1,7 @@
 <h1>Welcome back!</h1>
+
+<ol>
+  % this.current_user.groups.each do |group|
+    <li><a href="/groups/{{ group.id }}">{{ group.name }}</li>
+  % end
+</ol>

@@ -9,11 +9,15 @@ class User < Ohm::Model
   attribute :fb_access_token
   attribute :fb_id
 
-  collection :members, :Member
+  collection :memberships, :Membership
 
   unique :email
 
   index :fb_id
+
+  def groups
+    memberships.map(&:group)
+  end
 
   def self.fetch(email)
     with(:email, email)
