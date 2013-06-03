@@ -1,4 +1,6 @@
-<h1>Welcome back!</h1>
+<div class="page-header">
+  <h1>Welcome back!</h1>
+</div>
 
 <ol>
   % this.current_user.groups.each do |group|

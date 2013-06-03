@@ -1,1 +1,21 @@
-<h1>{{ group.name }}</h1>
+<div class="page-header">
+  <h1>{{ group.name }}</h1>
+</div>
+
+<ul class="media-list">
+  % group.pins.each do |pin|
+  <li class="media">
+    <img class="media-object pull-left img-polaroid" width=250 src="/img/{{ pin.deal.photo }}.jpg">
+    <div class="media-body">
+      <h4><a href="/deals/{{ pin.deal.id }}">{{ pin.deal.name }}</a></h4>
+      <p>{{ pin.deal.description }}</p>
+      <dl class="dl-horizontal">
+        <dt>Number of Persons</dt>
+        <dd>{{ pin.deal.pax }}</dd>
+        <dt>Cost</dt>
+        <dd>{{ this.money(pin.deal.cost) }}</dd>
+      </dl>
+    </div>
+  </li>
+  % end
+</ul>

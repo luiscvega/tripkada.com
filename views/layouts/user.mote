@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link href="/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
   </head>
   <body>
     <div class="navbar navbar-static-top">
@@ -13,6 +14,7 @@
           <a class="brand" href="#">Tripkada</a>
 
           <ul class="nav pull-right">
+            <li><a href="/deals">Deals</a></li>
             <li><a href="/">{{ this.current_user.full_name }}</a></li>
             <li><a href="/logout">Log Out</a></li>
           </ul>

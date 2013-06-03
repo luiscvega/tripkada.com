@@ -5,6 +5,14 @@ module Routes
         run Routes::Groups
       end
 
+      on "deals" do
+        run Routes::Deals
+      end
+
+      on "pins" do
+        run Routes::Pins
+      end
+
       on "logout" do
         logout(User)
         res.redirect "/"

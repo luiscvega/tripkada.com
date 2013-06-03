@@ -1,0 +1,33 @@
+<br />
+<div class="row">
+  <div class="span6">
+    <img class="img-polaroid" src="/img/{{ deal.photo }}.jpg">
+  </div>
+  <div class="span6">
+    <h1>{{ deal.name }}</h1>
+    <p>{{ deal.description }}</p>
+    <dl class="dl-horizontal">
+      <dt>Number of Persons</dt>
+      <dd>{{ deal.pax }}</dd>
+      <dt>Cost</dt>
+      <dd>{{ this.money(deal.cost) }}</dd>
+    </dl>
+    <form class="form-horizontal" action="/pins" method="POST">
+      <input type="hidden" name="pin[deal_id]" value="{{ deal.id }}"/>
+      <div class="control-group">
+        <label class="control-label">Group</label>
+        <div class="controls">
+
+          <select name="pin[group_id]">
+            % this.current_user.groups.each do |group|
+              <option value="{{ group.id }}">{{ group.name}}</option>
+            % end
+          </select>
+        </div>
+      </div>
+      <div class="form-actions">
+        <button class="btn btn-primary"><i class="icon-pushpin"></i> Pin This Deal</button>
+      </div>
+    </form>
+  </div>
+</div>

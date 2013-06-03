@@ -4,4 +4,5 @@ class Group < Ohm::Model
   attribute :name
 
   collection :members, :Member
+  collection :pins, :Pin
 end
