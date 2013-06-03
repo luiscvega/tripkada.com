@@ -3,12 +3,19 @@ task :seed do
 
   Ohm.flush
 
-  user = User.create(first_name: "Luis", last_name: "Vega", email: "luis@gmail.com", password: "pass1234")
+  luis = User.create(first_name: "Luis", last_name: "Vega", email: "luis@gmail.com", password: "pass1234")
+  macky = User.create(first_name: "Macky", last_name: "Tamayo", email: "macky@gmail.com", password: "pass1234")
+  jaq = User.create(first_name: "Jaq", last_name: "Uy", email: "jaq@gmail.com", password: "pass1234")
+  maureen = User.create(first_name: "Maureen", last_name: "Padilla", email: "maureen@gmail.com", password: "pass1234")
+
   group = Group.create(name: "Dahoodz")
-  Membership.create(user: user, group: group)
+  Membership.create(user: luis, group: group)
+  Membership.create(user: macky, group: group)
+  Membership.create(user: jaq, group: group)
+  Membership.create(user: maureen, group: group)
 
   group = Group.create(name: "Bukeki")
-  Membership.create(user: user, group: group)
+  Membership.create(user: luis, group: group)
 
   Deal.create(
     name: "Palawan Escape", pax: 4, duration: 3, cost: 10000, photo: "palawan1",

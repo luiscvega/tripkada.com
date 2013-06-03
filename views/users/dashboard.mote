@@ -4,6 +4,6 @@
 
 <ol>
   % this.current_user.groups.each do |group|
-    <li><a href="/groups/{{ group.id }}">{{ group.name }}</li>
+    <li><a href="/groups/{{ group.id }}">{{ group.name }}</a></li>
   % end
 </ol>

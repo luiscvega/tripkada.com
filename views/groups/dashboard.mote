@@ -2,22 +2,40 @@
   <h1>{{ group.name }}</h1>
 </div>
 
-<ul class="media-list">
-  % group.pins.each do |pin|
-  <div class="deal-row well well-small" onclick="location.href='/groups/{{ group.id }}/pins/{{ pin.id }}';">
-    <li class="media">
-      <img class="media-object pull-left img-polaroid" width=250 src="/img/{{ pin.deal.photo }}.jpg">
-      <div class="media-body">
-        <h4>{{ pin.deal.name }}</h4>
-        <p>{{ pin.deal.description }}</p>
-        <dl class="dl-horizontal">
-          <dt>Number of Persons</dt>
-          <dd>{{ pin.deal.pax }}</dd>
-          <dt>Cost</dt>
-          <dd>{{ this.money(pin.deal.cost) }}</dd>
-        </dl>
-      </div>
-    </li>
-  </div>
-  % end
+<ul class="nav nav-tabs" id="myTab">
+  <li class="active"><a href="#pins" data-toggle="tab">Pinned Deals</a></li>
+  <li><a href="#members" data-toggle="tab">Members</a></li>
 </ul>
+ 
+<div class="tab-content">
+  <div class="tab-pane active" id="pins">
+    <ul class="media-list">
+      % group.pins.each do |pin|
+      <div class="deal-row well well-small" onclick="location.href='/groups/{{ group.id }}/pins/{{ pin.id }}';">
+        <li class="media">
+          <img class="media-object pull-left img-polaroid" width=250 src="/img/{{ pin.deal.photo }}.jpg">
+          <div class="media-body">
+            <h4>{{ pin.deal.name }}</h4>
+            <p>{{ pin.deal.description }}</p>
+            <dl class="dl-horizontal">
+              <dt>Number of Persons</dt>
+              <dd>{{ pin.deal.pax }}</dd>
+              <dt>Cost</dt>
+              <dd>{{ this.money(pin.deal.cost) }}</dd>
+            </dl>
+          </div>
+        </li>
+      </div>
+      % end
+    </ul>
+  </div>
+
+  <div class="tab-pane" id="members">
+    <ol>
+      % group.users.each do |user|
+        <li>{{ user.full_name }}</li>
+      % end
+    </ol>
+  </div>
+</div>
+

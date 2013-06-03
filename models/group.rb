@@ -3,6 +3,10 @@ class Group < Ohm::Model
 
   attribute :name
 
-  collection :members, :Member
+  collection :memberships, :Membership
   collection :pins, :Pin
+
+  def users
+    memberships.map(&:user)
+  end
 end
