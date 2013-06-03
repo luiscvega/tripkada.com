@@ -1,0 +1,20 @@
+<h1>Group travel deals</h1>
+
+<!--/register/login?user=...-->
+<form class="form" method="POST" action="/register/login">
+  <fieldset>
+    <div class="control-group">
+      <div class="controls">
+        <input type="text" name="user[email]" id="user_email" placeholder="E-mail">
+      </div>
+    </div>
+    <div class="control-group">
+      <div class="controls">
+        <input type="password" name="user[password]" id="user_password" placeholder="Password">
+      </div>
+    </div>
+    <div class="form-actions">
+      <button type="submit" class="btn">Log In</button>
+    </div>
+  </fieldset>
+</form>

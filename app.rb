@@ -1,8 +1,5 @@
-require "cuba"
-require "mote"
-require "cuba/contrib"
-require "rack/protection"
-require "shield"
+require_relative "config/settings"
+require_relative "shotgun"
 
 Cuba.plugin Cuba::Mote
 Cuba.plugin Cuba::TextHelpers
@@ -24,6 +21,8 @@ Cuba.use Rack::Session::Cookie,
 Cuba.use Rack::Protection
 Cuba.use Rack::Protection::RemoteReferrer
 
+Cuba.plugin Helpers
+
 Cuba.use Rack::Static,
   urls: %w[/js /css /img],
   root: "./public"
@@ -31,17 +30,15 @@ Cuba.use Rack::Static,
 Cuba.define do
   persist_session!
 
-  on "products/:id" do |id|
-    on "step1" do
-      render("products/form/step1")
-    end
+  on authenticated(User) do
+    run Routes::Users
+  end
 
-    on "step2" do
-      render("products/form/step2")
-    end
+  on "register" do
+    run Routes::Register
+  end
 
-    on "step3" do
-      render("products/form/step3")
-    end
+  on root do
+    guest_render "index"
   end
 end

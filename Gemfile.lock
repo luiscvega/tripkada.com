@@ -15,6 +15,8 @@ GEM
     ohm-contrib (1.2)
       ohm (~> 1.2)
     pbkdf2 (0.1.0)
+    puma (2.0.1)
+      rack (>= 1.1, < 2.0)
     rack (1.5.2)
     rack-protection (1.5.0)
       rack
@@ -22,6 +24,8 @@ GEM
     scrivener (0.0.3)
     shield (1.0.0)
       pbkdf2
+    shotgun (0.9)
+      rack (>= 1.0)
 
 PLATFORMS
   ruby
@@ -32,5 +36,7 @@ DEPENDENCIES
   mote
   ohm
   ohm-contrib
+  puma
   rack-protection
   shield
+  shotgun
