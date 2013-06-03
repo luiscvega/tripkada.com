@@ -10,4 +10,6 @@ class Deal < Ohm::Model
   attribute :cost, Type::Decimal
 
   collection :pins, :Pin
+
+  index :pax
 end

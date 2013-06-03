@@ -6,6 +6,10 @@ class Group < Ohm::Model
   collection :memberships, :Membership
   collection :pins, :Pin
 
+  def deals
+    pins.map(&:deal)
+  end
+
   def users
     memberships.map(&:user)
   end

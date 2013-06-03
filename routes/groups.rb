@@ -11,7 +11,10 @@ module Routes
           end
 
           on root do
-            user_render "groups/dashboard", group: Group[id]
+            group = Group[id]
+            featured_deals = Deal.find(pax: group.users.count)
+
+            user_render "groups/dashboard", group: Group[id], featured_deals: featured_deals
           end
         end
       end
