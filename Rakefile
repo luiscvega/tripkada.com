@@ -30,4 +30,25 @@ task :seed do
       "Travel to one of the most famous beaches here in the Philippines,
       enjoy the Underground River with your friends and just have a great time!"
   )
+
+  Deal.create(
+    name: "Chocolate Bohol", pax: 4, duration: 4, cost: 20000, photo: "bohol1",
+    description:
+      "Travel to one of the most famous beaches here in the Philippines,
+      enjoy the Underground River with your friends and just have a great time!"
+  )
+
+  Deal.create(
+    name: "Majestic Davao", pax: 3, duration: 4, cost: 20000, photo: "davao1",
+    description:
+      "Travel to one of the most famous beaches here in the Philippines,
+      enjoy the Underground River with your friends and just have a great time!"
+  )
+
+  Deal.create(
+    name: "Palaui Chill", pax: 4, duration: 4, cost: 30000, photo: "palaui1",
+    description:
+      "Travel to one of the most famous beaches here in the Philippines,
+      enjoy the Underground River with your friends and just have a great time!"
+  )
 end
