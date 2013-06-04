@@ -1,33 +1,82 @@
-<br />
-<div class="row">
-  <div class="span6">
-    <img class="img-polaroid" src="/img/{{ deal.photo }}.jpg">
-  </div>
-  <div class="span6">
-    <h1>{{ deal.name }}</h1>
-    <p>{{ deal.description }}</p>
-    <dl class="dl-horizontal">
-      <dt>Number of Persons</dt>
-      <dd>{{ deal.pax }}</dd>
-      <dt>Cost</dt>
-      <dd>{{ this.money(deal.cost) }}</dd>
-    </dl>
-    <form class="form-horizontal" action="/pins" method="POST">
-      <input type="hidden" name="pin[deal_id]" value="{{ deal.id }}"/>
-      <div class="control-group">
-        <label class="control-label">Group</label>
-        <div class="controls">
+<div class="page-header">
+  <h1>{{ deal.name }}</h1>
+</div>
 
-          <select name="pin[group_id]">
-            % this.current_user.groups.each do |group|
-              <option value="{{ group.id }}">{{ group.name}}</option>
-            % end
-          </select>
+<div id="deal-details" class="row">
+  <div class="span8">
+    <div class="row">
+      <div class="span8 left">
+        <ul class="nav nav-tabs">
+          <li class="active"><a href="#photos" data-toggle="tab">Photos</a></li>
+          <li><a href="#map" data-toggle="tab">Map</a></li>
+          <li><a href="#calendar" data-toggle="tab">Calendar</a></li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="photos">
+            <img src="/img/{{ deal.photo }}.jpg">
+          </div>
+
+          <div class="tab-pane" id="map">
+            <h1>Map</h1>
+          </div>
+
+          <div class="tab-pane" id="calendar">
+            <h1>Calendar</h1>
+          </div>
         </div>
       </div>
-      <div class="form-actions">
-        <button class="btn btn-primary"><i class="icon-pushpin"></i> Pin This Deal</button>
+    </div>
+
+    <div class="row">
+      <div class="span8">
+        <ul class="nav nav-tabs">
+          <li class="active"><a href="#description" data-toggle="tab">Description</a></li>
+          <li><a href="#transportation" data-toggle="tab">Transporation</a></li>
+          <li><a href="#accomodations" data-toggle="tab">Accomodations</a></li>
+        </ul>
+
+        <div class="tab-content">
+          <div class="tab-pane active" id="description">
+            <h4>Description</h4>
+            <p>{{ deal.description }}</p>
+          </div>
+
+          <div class="tab-pane" id="transportation">
+            <h4>Transportation</h4>
+          </div>
+
+          <div class="tab-pane" id="accomodations">
+            <h4>Accomodations</h4>
+          </div>
+        </div>
       </div>
-    </form>
+    </div>
+  </div>
+
+  <div class="span4 right">
+    <div class="well well-small">
+      <h2 class="text-center"><small>From</small> {{ this.money(deal.cost) }}</h2>
+      <dl class="dl-horizontal">
+        <dt>Pax</dt>
+        <dd>{{ deal.pax }} person(s)</dd>
+      </dl>
+      <form action="/pins" method="POST">
+        <input type="hidden" name="pin[deal_id]" value="{{ deal.id }}"/>
+        <div class="control-group">
+          <label class="control-label">Group</label>
+          <div class="controls">
+
+            <select name="pin[group_id]">
+              % this.current_user.groups.each do |group|
+                <option value="{{ group.id }}">{{ group.name}}</option>
+              % end
+            </select>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button class="btn btn-primary"><i class="icon-pushpin"></i> Pin This Deal</button>
+        </div>
+      </form>
+    </div>
   </div>
 </div>
