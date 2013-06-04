@@ -1,4 +1,4 @@
-<h1>{{ deal.name }}</h1>
+<h1>{{ deal.name }} <small>{{ deal.formatted_duration }}</small></h1>
 
 <div id="deal-details" class="row">
   <div class="span8">
