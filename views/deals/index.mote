@@ -8,14 +8,20 @@
     <li class="media">
       <img class="media-object pull-left img-polaroid" width=250 src="/img/{{ deal.photo }}.jpg">
       <div class="media-body">
-        <h4>{{ deal.name }}</h4>
+        <h4>{{ deal.name }} <small>{{ deal.formatted_duration }}</small></h4>
         <p>{{ deal.description }}</p>
-        <dl class="dl-horizontal">
-          <dt>Number of Persons</dt>
-          <dd>{{ deal.pax }}</dd>
-          <dt>Cost</dt>
-          <dd>{{ this.money(deal.cost) }}</dd>
-        </dl>
+
+        <ul class="details inline">
+          <li data-toggle="tooltip" title="Number of Persons"><h4><i class="icon-large icon-group"> {{ deal.pax }}</i></h4></li>
+          <li data-toggle="tooltip" title="Flight Included"><h4><i class="icon-large icon-plane"></i></h4></li>
+          <li data-toggle="tooltip" title="Accomodations Included"><h4><i class="icon-large icon-home"></i></h4></li>
+        </ul>
+
+        <span class="cost">
+          from
+          <h3>{{ this.money(deal.cost).split(".")[0] }}</h3>
+          per person
+        </span>
       </div>
     </div>
   </li>

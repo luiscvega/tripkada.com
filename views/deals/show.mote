@@ -1,6 +1,4 @@
-<div class="page-header">
-  <h1>{{ deal.name }}</h1>
-</div>
+<h1>{{ deal.name }}</h1>
 
 <div id="deal-details" class="row">
   <div class="span8">
